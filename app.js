@@ -50,7 +50,8 @@ app.post('/api/post/createPost', (req, res) => {
         if(err) throw err;
         const post = new Post({
             title: req.body.title,
-            description: req.body.description
+            description: req.body.description,
+            price: req.body.price
         })
         post.save((err, doc) => {
             if(err) throw err;
