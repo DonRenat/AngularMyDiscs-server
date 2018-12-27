@@ -51,7 +51,8 @@ app.post('/api/post/createPost', (req, res) => {
         const post = new Post({
             title: req.body.title,
             description: req.body.description,
-            price: req.body.price
+            price: req.body.price,
+            img: req.body.img
         })
         post.save((err, doc) => {
             if(err) throw err;
@@ -68,7 +69,7 @@ app.post('/api/post/updatePost', (req, res) => {
         if(err) throw err;
         Post.update(
             {_id: req.body.id },
-            { title : req.body.title, description: req.body.description, price: req.body.price },
+            { title : req.body.title, description: req.body.description, price: req.body.price, img: req.body.img },
             (err, doc) => {
             if(err) throw err;
             return res.status(200).json({
